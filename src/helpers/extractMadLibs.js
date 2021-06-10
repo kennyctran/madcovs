@@ -1,6 +1,6 @@
 import isolatePhrase from './isolatePhrase';
 
-function extractMadLibs(inputText, phraseBorder) {
+function extractMadLibs(inputText, phrase) {
   let idx = 0;
   const libs = [];
 
@@ -11,12 +11,13 @@ function extractMadLibs(inputText, phraseBorder) {
   while(idx < inputText.length) {
     const char = inputText[idx];
     const nextChar = inputText[idx + 1];
-    if (char === phraseBorder && nextChar === phraseBorder) {
-      libs.push(isolatePhrase(inputText, idx, phraseBorder))
+    let madLib = '';
+    if (char === phrase && nextChar === phrase) {
+      madLib = isolatePhrase(inputText, idx, phrase);
+      libs.push(madLib);
     }
-    next();
+    next(madLib.length || 1);
   }
-
   return libs;
 }
 
