@@ -9,14 +9,19 @@
     "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
     "start": "nodemon ./server/start.js",
-    "clean": "rm ./dist/bundle.js"
+    "clean": "rm ./dist/bundle.js",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
+    "@testing-library/jest-dom": "^5.13.0",
+    "@testing-library/react": "^11.2.7",
+    "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.2",
     "dotenv": "^10.0.0",
+    "jest": "^27.0.4",
     "nodemon": "^2.0.7",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.2"

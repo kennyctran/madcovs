@@ -12,7 +12,7 @@ function extractMadLibs(inputText, phraseBorder) {
     const char = inputText[idx];
     const nextChar = inputText[idx + 1];
     if (char === phraseBorder && nextChar === phraseBorder) {
-      libs.push(isolatePhrase(inputText, idx, phrase))
+      libs.push(isolatePhrase(inputText, idx, phraseBorder))
     }
     next();
   }
