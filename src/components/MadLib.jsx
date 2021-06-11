@@ -4,10 +4,10 @@ function MadLib({ text }) {
   return (
     <div>
       <h4>{text}</h4>
-      {/* <form>
+      <form>
         <label aria-label={`${text} input`}></label>
         <input type="text" />
-      </form> */}
+      </form>
     </div>
   )
 }
