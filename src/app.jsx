@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import useParser from "./custom/useParser";
 import MadLib from "./components/MadLib";
 import extractMadLibs from "./helpers/extractMadLibs";
+
 // On button submit
 // Move user to a new page using react router
 // That page will require the coverLetter variable
@@ -9,7 +10,8 @@ import extractMadLibs from "./helpers/extractMadLibs";
 // It will need to display the split screen view
 
 function App() {
-  const [coverLetter, setCoverLetter] = useParser();
+  const [coverLetter, setCoverLetter, parsedCover, setParsedCover, save] =
+    useParser();
   const [madLibs, setMadLibs] = useState([]);
   const [displayInput, setDisplayInput] = useState(true);
 
@@ -36,10 +38,17 @@ function App() {
           </button>
         </form>
       ) : null}
-      <div>{coverLetter}</div>
+      <div>{parsedCover}</div>
       <div>
         {madLibs.map((lib, i) => {
-          return <MadLib key={i} text={lib} />;
+          return (
+            <MadLib
+              key={i}
+              phrase={lib}
+              handleChange={setParsedCover}
+              handleSave={save}
+            />
+          );
         })}
       </div>
     </div>
