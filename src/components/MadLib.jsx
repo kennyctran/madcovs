@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from "react";
 
-function MadLib({ text }) {
+function MadLib({ phrase, handleChange, handleSave }) {
+  const [madLibText, setMadLibText] = useState("");
+
+  const updatePreview = (newText) => {
+    setMadLibText(newText);
+    handleChange(madLibText, phrase);
+  };
+
   return (
     <div>
-      <h4>{text}</h4>
-      {/* <form>
-        <label aria-label={`${text} input`}></label>
-        <input type="text" />
-      </form> */}
+      <h4>{phrase}</h4>
+      <form>
+        <input
+          type="text"
+          aria-label={`${phrase} input`}
+          onChange={(e) => updatePreview(e.target.value)}
+        />
+        <button type="button" onClick={handleSave}>save</button>
+      </form>
     </div>
-  )
+  );
 }
 
-export default MadLib
+export default MadLib;
